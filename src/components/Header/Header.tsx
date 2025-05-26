@@ -11,7 +11,7 @@ const Header: React.FC = () => {
   const handleSearch = () => {
     if (searchQuery.trim()) {
       navigate(`/search?query=${encodeURIComponent(searchQuery)}`);
-      setSearchOpen(false); // Закрываем строку поиска
+      setSearchOpen(false);
     }
   };
 

@@ -24,7 +24,6 @@ const MainContent: React.FC = () => {
         <h1 className="music-title">Music</h1>
       </div>
       <div className="page-content">
-        {/* Hot right now section */}
         <div className="hot-now-container">
           <h2 className="hot-now-title">Hot right now</h2>
           {error && artists.length === 0 && (
