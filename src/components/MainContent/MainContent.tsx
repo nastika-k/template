@@ -34,7 +34,7 @@ const MainContent: React.FC = () => {
             {artists.map((artist) => (
               <div className="artist-card" key={artist.mbid || artist.name}>
                 <a href={artist.url} target="_blank" rel="noopener noreferrer">
-                  <img src={artist.image?.[2]['#text'] || ''} alt={artist.name} />
+                  <img src={artist.image?.[0]?.['#text'] || 'https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png'} alt={artist.name} />
                 </a>
                 <h3>
                   <a href={artist.url} target="_blank" rel="noopener noreferrer">
@@ -73,10 +73,11 @@ const MainContent: React.FC = () => {
               <div className="track-item" key={track.mbid || `${track.name}-${track.artist.name}`}>
                 <a href={track.url} target="_blank" rel="noopener noreferrer">
                   <img 
-                    src={track.image?.[2]['#text'] || ''} 
+                    src={track.image?.[0]?.['#text'] || 'https://lastfm.freetls.fastly.net/i/u/300x300/2a96cbd8b46e442fc41c2b86b821562f.png'} 
                     alt={`${track.name} - ${track.artist.name}`} 
                     className="track-cover"
                   />
+
                 </a>
                 <div className="track-info">
                   <h3 className="track-title">

@@ -243,7 +243,7 @@ html, body {
   color: #999;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .main-content {
     padding: 16px;
   }
@@ -273,7 +273,7 @@ html, body {
 
   .artists-grid {
     grid-template-columns: repeat(6, 1fr);
-    gap: 8px;
+    gap: 5px;
     padding: 0 8px;
     max-width: 100%;
   }
@@ -302,7 +302,7 @@ html, body {
   .tracks-column {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 15px;
     min-width: 0;
   }
 
