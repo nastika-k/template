@@ -8,13 +8,20 @@ const Header: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
 
+  /**
+ * Выполняет поиск, обновляя URL-адрес и закрывая окно поиска.
+ */
   const handleSearch = () => {
     if (searchQuery.trim()) {
       navigate(`/search?query=${encodeURIComponent(searchQuery)}`);
       setSearchOpen(false);
     }
   };
-
+  
+  /**
+ * Обрабатывает нажатие клавиши "Enter" в поле ввода.
+ * @param {React.KeyboardEvent<HTMLInputElement>} e - Событие клавиатуры.
+ */
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       handleSearch();

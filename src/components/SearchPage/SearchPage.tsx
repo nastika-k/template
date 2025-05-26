@@ -4,6 +4,10 @@ import './SearchPage.css';
 import { FaSearch, FaTimes } from 'react-icons/fa';
 import { searchArtists, searchAlbums, searchTracks } from "./../../lastfm";
 
+/**
+ * Получает параметры запроса из URL-адреса.
+ * @returns {URLSearchParams} Объект, содержащий параметры запроса.
+ */
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
@@ -16,11 +20,17 @@ const SearchPage: React.FC = () => {
   const [tracks, setTracks] = useState<any[]>([]);
   const navigate = useNavigate();
 
+  /**
+   * Функция для выполнения поиска при изменении параметра запроса.
+   */
   useEffect(() => {
     setSearchTerm(query);
 
     if (!query) return;
 
+    /**
+     * Функция для получения данных поиска.
+     */
     async function fetchData() {
       try {
         const [artistsRes, albumsRes, tracksRes] = await Promise.all([
@@ -40,12 +50,18 @@ const SearchPage: React.FC = () => {
     fetchData();
   }, [query]);
 
+  /**
+   * Обрабатывает событие поиска и обновляет URL-адрес с параметром запроса.
+   */
   const handleSearch = () => {
     if (searchTerm.trim()) {
       navigate(`/search?query=${encodeURIComponent(searchTerm)}`);
     }
   };
 
+  /**
+   * Очищает поле поиска.
+   */
   const handleClear = () => {
     setSearchTerm('');
   };

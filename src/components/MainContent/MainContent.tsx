@@ -8,6 +8,7 @@ const MainContent: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [tracksError, setTracksError] = useState<string | null>(null);
 
+/** Функция для загрузки артистов и треков */
   useEffect(() => {
     fetchTopArtists()
       .then(setArtists)
